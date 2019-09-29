@@ -1,0 +1,42 @@
+.heading {
+    color: black;
+    background-color: white;
+    padding-bottom: 2%;  
+}
+
+.backdrop {
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(../../assets/image/dnabackground.jpg);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    background-attachment: fixed;
+    z-index: 100;
+    position: relative;
+}
+
+.mainList {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.view {
+    display: inline-block;
+    margin: 20px;
+}
+
+.view a {
+    text-decoration: none;
+    color: white;
+    
+}
+
+.view a:hover,
+.view a:active,
+.view a.active {
+    color: lightblue;
+    border-bottom: 2px solid lightblue;
+    
+}

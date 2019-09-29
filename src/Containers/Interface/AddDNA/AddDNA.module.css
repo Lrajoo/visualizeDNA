@@ -1,0 +1,16 @@
+.FormLayout {
+    margin: 20px auto;
+    width: 50%;
+    text-align: center;
+    border: 3px solid grey;
+    padding: 10px;
+    box-sizing: border-box;
+    background-color: white;
+
+}
+
+.Label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}

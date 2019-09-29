@@ -1,0 +1,26 @@
+.Button {
+    background-color: grey;
+    border: none;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font: inherit;
+    margin: 10px;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.Button:first-of-type {
+    margin-left: 0;
+    padding: 10px 60px;
+}
+
+.Success {
+    background-color: green;
+}
+
+.Start {
+    background-color: grey;
+}
