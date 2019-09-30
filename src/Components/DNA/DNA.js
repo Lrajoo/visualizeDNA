@@ -11,11 +11,15 @@ class DNA extends Component{
     }
 
     render(){
+        if(this.props.sequence.length > 45){
+            
+        }
+
         return (
             <div className={classes.DNA}>
                 <p>Name: {this.props.name}</p>
                 <p>Description: {this.props.description}</p>
-                <p>Sequence: {this.props.sequence}</p>
+                <p>Sequence: {this.props.sequence.slice(0,35)}</p>
                 <Button clicked={this.executeSeqChange}>View Full Sequence</Button>
             </div>
         );

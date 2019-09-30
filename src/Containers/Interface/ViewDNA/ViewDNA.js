@@ -44,6 +44,12 @@ class ViewDNA extends Component {
     showSequence = () => {
         this.setState({show: true});
     }
+
+    hideSequence = () => {
+        this.setState({show: false});
+    }
+
+
     render(){
         let controls = null;
         let listDNA = null;
@@ -98,6 +104,7 @@ class ViewDNA extends Component {
                                     description={this.props.DNA[key].sequenceDescription} 
                                     sequence={this.props.DNA[key].sequenceDNA}
                                     show={this.showSequence}
+                                    seq={this.state.sequence}
                                 />
                     })}
                     
@@ -111,6 +118,7 @@ class ViewDNA extends Component {
         let summary  = null;
         if(this.state.show){
             let lastSequence = this.state.sequence[this.state.sequence.length-1];
+
             summary = (
                 <Summary seq={lastSequence}/>
             );
@@ -120,7 +128,7 @@ class ViewDNA extends Component {
             <div className={classes.View}>
                 {controls}
                 {listDNA}
-                <Modal>
+                <Modal show={this.state.show} modalClosed={this.hideSequence}>
                     {summary}
                 </Modal>
             </div>
