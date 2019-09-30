@@ -4,6 +4,7 @@ import Button from '../../../Components/Button/Button';
 import DNA from '../../../Components/DNA/DNA';
 import classes from './ViewDNA.module.css';
 import Input from '../../../Components/Input/Input';
+import Summary from '../../../Components/Summary/Summary';
 
 class ViewDNA extends Component {
     state = {
@@ -16,7 +17,9 @@ class ViewDNA extends Component {
             },
             value: ''
         },
-        sorted: false
+        sorted: false,
+        show: false,
+        sequence: []
     }
 
     inputChangedHandler = (event) => {
@@ -37,13 +40,14 @@ class ViewDNA extends Component {
         this.props.DNA.sort(mySorter);
         this.setState({sorted: true});
     }
-    
-   
 
+    showSequence = () => {
+        this.setState({show: true});
+    }
     render(){
         let controls = null;
         let listDNA = null;
-        if(this.props.DNA.length > 0 && this.state.search.value === '' || this.state.sorted){
+        if(this.props.DNA.length > 0){
             controls =(
                 <div>
                     <Button btnType={'Sort'} clicked={this.sortSequenceName}>Sort</Button>
@@ -58,33 +62,24 @@ class ViewDNA extends Component {
                     />
                 </div>
             );
+        }
+        if(this.props.DNA.length > 0 && this.state.search.value === '' || this.state.sorted){
+   
             listDNA = (
                 <div>
                     {this.props.DNA.map(dna => {
                         return <DNA 
+                                    id={dna}
                                     name={dna.sequenceName} 
                                     description={dna.sequenceDescription} 
                                     sequence={dna.sequenceDNA}
+                                    show={this.showSequence}
+                                    seq={this.state.sequence}
                                 />
                     })}
                 </div>
             );
-            
         }else if(this.state.search.value !== ''){
-            controls =(
-                <div>
-                    <Button btnType={'Sort'} clicked={this.sortSequenceName}>Sort</Button>
-                    <Input
-                        invalid={false}
-                        touched={false}
-                        elementType={this.state.elementType}
-                        name={this.state.name}
-                        elementConfig={this.state.elementConfig}
-                        value={this.state.value}
-                        changed={(event) => this.inputChangedHandler(event)}
-                    />
-                </div>
-            );
             let searchArr = [];
             for(let key in this.props.DNA){
                 let currName = this.props.DNA[key].sequenceName;
@@ -98,11 +93,14 @@ class ViewDNA extends Component {
                 <div>
                     {searchArr.map(key => {
                         return <DNA 
+                                    id={key}
                                     name={this.props.DNA[key].sequenceName} 
                                     description={this.props.DNA[key].sequenceDescription} 
                                     sequence={this.props.DNA[key].sequenceDNA}
+                                    show={this.showSequence}
                                 />
                     })}
+                    
                 </div>
             );
             searchArr = [];
@@ -110,11 +108,21 @@ class ViewDNA extends Component {
         }else{
             listDNA = <h2>No DNA samples have been added.</h2>
         }
+        let summary  = null;
+        if(this.state.show){
+            let lastSequence = this.state.sequence[this.state.sequence.length-1];
+            summary = (
+                <Summary seq={lastSequence}/>
+            );
+        }
 
         return(
             <div className={classes.View}>
                 {controls}
                 {listDNA}
+                <Modal>
+                    {summary}
+                </Modal>
             </div>
         );
     }
