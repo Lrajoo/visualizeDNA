@@ -174,6 +174,7 @@ class AddDNA extends Component {
         for(let inputIdentifier in updatedForm){
             formIsValid = updatedForm[inputIdentifier].valid && formIsValid;
         }
+        
         this.setState({DNAForm: updatedForm, formIsValid: formIsValid});
     }
 

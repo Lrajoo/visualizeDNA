@@ -21,6 +21,8 @@
     background-color: green;
 }
 
-.Start {
+.Sort{
     background-color: grey;
+    display: inline;
+    padding: 5px 120px;
 }
