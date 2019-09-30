@@ -15,7 +15,8 @@ class ViewDNA extends Component {
                 placeholder: 'Search Sequence Name'
             },
             value: ''
-        }
+        },
+        sorted: false
     }
 
     inputChangedHandler = (event) => {
@@ -24,15 +25,28 @@ class ViewDNA extends Component {
         };
         search.value = event.target.value;
         this.setState({search: search});
+        this.setState({sorted: false});
     }
+
+    sortSequenceName = () => {
+        function mySorter(a, b) {
+            let x = a.sequenceName.toLowerCase();
+            let y = b.sequenceName.toLowerCase();
+            return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+        }
+        this.props.DNA.sort(mySorter);
+        this.setState({sorted: true});
+    }
+    
+   
 
     render(){
         let controls = null;
         let listDNA = null;
-        if(this.props.DNA.length > 0 && this.state.search.value === ''){
+        if(this.props.DNA.length > 0 && this.state.search.value === '' || this.state.sorted){
             controls =(
                 <div>
-                    <Button btnType={'Sort'}>Sort</Button>
+                    <Button btnType={'Sort'} clicked={this.sortSequenceName}>Sort</Button>
                     <Input
                         invalid={false}
                         touched={false}
@@ -55,10 +69,11 @@ class ViewDNA extends Component {
                     })}
                 </div>
             );
+            
         }else if(this.state.search.value !== ''){
             controls =(
                 <div>
-                    <Button btnType={'Sort'}>Sort</Button>
+                    <Button btnType={'Sort'} clicked={this.sortSequenceName}>Sort</Button>
                     <Input
                         invalid={false}
                         touched={false}

@@ -28,7 +28,7 @@ class Interface extends Component {
                 <Route 
                     path='/'
                     exact
-                    render={(props) => (<ViewDNA DNA={this.state.DNA} {...props} />)} />
+                    render={(props) => (<ViewDNA DNA={this.state.DNA} {...props}  />)} />
                 <Route 
                     path='/add-sequence'
                     render={(props) => (<AddDNA DNA={this.state.DNA} {...props} />)} />  
