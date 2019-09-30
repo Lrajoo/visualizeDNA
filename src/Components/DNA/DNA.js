@@ -11,15 +11,16 @@ class DNA extends Component{
     }
 
     render(){
-        if(this.props.sequence.length > 45){
-            
+        let truncatedSequence = this.props.sequence;
+        if(this.props.sequence.length > 35){
+            truncatedSequence = this.props.sequence.slice(0,35) + '...';
         }
 
         return (
             <div className={classes.DNA}>
                 <p>Name: {this.props.name}</p>
                 <p>Description: {this.props.description}</p>
-                <p>Sequence: {this.props.sequence.slice(0,35)}</p>
+                <p>Sequence: {truncatedSequence}</p>
                 <Button clicked={this.executeSeqChange}>View Full Sequence</Button>
             </div>
         );
@@ -28,7 +29,3 @@ class DNA extends Component{
 
 export default DNA;
 
-
-//(event) => this.inputChangedHandler(event)
-
-//props.show(props.sequence)

@@ -60,16 +60,16 @@ class ViewDNA extends Component {
                     <Input
                         invalid={false}
                         touched={false}
-                        elementType={this.state.elementType}
-                        name={this.state.name}
-                        elementConfig={this.state.elementConfig}
-                        value={this.state.value}
+                        elementType={this.state.search.elementType}
+                        name={this.state.search.name}
+                        elementConfig={this.state.search.elementConfig}
+                        value={this.state.search.value}
                         changed={(event) => this.inputChangedHandler(event)}
                     />
                 </div>
             );
         }
-        if(this.props.DNA.length > 0 && this.state.search.value === '' || this.state.sorted){
+        if((this.props.DNA.length > 0 && this.state.search.value === '') || this.state.sorted){
    
             listDNA = (
                 <div>

@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.da9acd3e.chunk.css",
+    "main.js": "/static/js/main.56a633dd.chunk.js",
+    "main.js.map": "/static/js/main.56a633dd.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.3b6a4673.js",
+    "runtime-main.js.map": "/static/js/runtime-main.3b6a4673.js.map",
+    "static/js/2.7d1fc317.chunk.js": "/static/js/2.7d1fc317.chunk.js",
+    "static/js/2.7d1fc317.chunk.js.map": "/static/js/2.7d1fc317.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.805c4ce34729b510895b176733517f5b.js": "/precache-manifest.805c4ce34729b510895b176733517f5b.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/main.da9acd3e.chunk.css.map": "/static/css/main.da9acd3e.chunk.css.map",
+    "static/media/Interface.module.css": "/static/media/dnabackground.f22b4c52.jpg"
+  }
+}

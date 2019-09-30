@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux/Aux';
 import classes from './Summary.module.css';
 
 
@@ -10,19 +9,19 @@ class Summary extends Component {
         let counter = 0;
         const items = []
         for(let k in this.props.seq){
-            if(counter % 90 == 0){
+            if(counter % 77 === 0){
                 items.push(<br></br>)
             }
-            if(this.props.seq[k] == 'A'){
-                items.push(<p style={{display:'inline', color:'red'}}>{this.props.seq[k]}</p>)
-            }else if(this.props.seq[k] == 'G'){
-                items.push(<p style={{display:'inline', color:'orange'}}>{this.props.seq[k]}</p>)
-            }else if(this.props.seq[k] == 'T'){
-                items.push(<p style={{display:'inline', color:'green'}}>{this.props.seq[k]}</p>)
-            }else if(this.props.seq[k] == 'C'){
-                items.push(<p style={{display:'inline', color:'blue'}}>{this.props.seq[k]}</p>)
+            if(this.props.seq[k] === 'A'){
+                items.push(<p className={classes.DNAred}>{this.props.seq[k]}</p>)
+            }else if(this.props.seq[k] === 'G'){
+                items.push(<p className={classes.DNAorange}>{this.props.seq[k]}</p>)
+            }else if(this.props.seq[k] === 'T'){
+                items.push(<p className={classes.DNAblue}>{this.props.seq[k]}</p>)
+            }else if(this.props.seq[k] === 'C'){
+                items.push(<p className={classes.DNAgreen}>{this.props.seq[k]}</p>)
             }else{
-                items.push(<p style={{display:'inline', color:'black'}}>{this.props.seq[k]}</p>)
+                items.push(<p className={classes.DNA}>{this.props.seq[k]}</p>)
             }
             counter +=1;
           
@@ -41,22 +40,3 @@ class Summary extends Component {
 };
 
 export default Summary;
-
-/*
-        for(let k in this.props.seq){
-            if(this.props.seq[k] == 'A'){
-                color='red';
-            }else if(this.props.seq[k] == 'T'){
-                color='blue';
-            }else if(this.props.seq[k] == 'G'){
-                color='green';
-            }else if(this.props.seq[k] == 'C'){
-                color='indigo';
-            }else{
-                color='black';
-            }
-        }
-
-
-
-*/
